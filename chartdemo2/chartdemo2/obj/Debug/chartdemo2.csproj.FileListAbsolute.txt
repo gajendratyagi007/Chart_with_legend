@@ -1,0 +1,5 @@
+c:\users\tyagi\documents\visual studio 2012\Projects\solutions\chartdemo2\chartdemo2\bin\chartdemo2.dll
+c:\users\tyagi\documents\visual studio 2012\Projects\solutions\chartdemo2\chartdemo2\bin\chartdemo2.pdb
+c:\users\tyagi\documents\visual studio 2012\Projects\solutions\chartdemo2\chartdemo2\obj\Debug\chartdemo2.csprojResolveAssemblyReference.cache
+c:\users\tyagi\documents\visual studio 2012\Projects\solutions\chartdemo2\chartdemo2\obj\Debug\chartdemo2.dll
+c:\users\tyagi\documents\visual studio 2012\Projects\solutions\chartdemo2\chartdemo2\obj\Debug\chartdemo2.pdb

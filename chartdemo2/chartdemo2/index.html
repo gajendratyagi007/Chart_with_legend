@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <link href="normalize.css" rel="stylesheet" />
+    <link href="chartcss.css" rel="stylesheet" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><canvas id="myChart" width="256" height="256"></canvas></td>
+            <td style="vertical-align:text-top"><div id="js-legend" class="chart-legend"></div></td>
+        </tr>
+
+    </table>
+    
+    
+    <script>
+        Chart.types.Doughnut.extend({
+            name: "DoughnutTextInside",
+            showTooltip: function () {
+                this.chart.ctx.save();
+                Chart.types.Doughnut.prototype.showTooltip.apply(this, arguments);
+                this.chart.ctx.restore();
+            },
+            draw: function () {
+                Chart.types.Doughnut.prototype.draw.apply(this, arguments);
+
+                var width = this.chart.width,
+                    height = this.chart.height;
+
+                var fontSize = (height / 200).toFixed(2);
+                this.chart.ctx.font = fontSize + "em Verdana";
+                this.chart.ctx.textBaseline = "middle";
+
+                var text = "Record",
+                    textX = Math.round((width - this.chart.ctx.measureText(text).width) / 2),
+                    textY = height / 2;
+
+                this.chart.ctx.fillText(text, textX, textY);
+            }
+        });
+
+        var data = [{
+            value: 30,
+            color: "#F7464A",
+            label: "HTML"
+        }, {
+            value: 20,
+            color: "#E2EAE9",
+            label: "Java"
+        }, {
+            value: 100,
+            color: "#D4CCC5",
+            label: "AngularJs"
+        }, {
+            value: 40,
+            color: "#949FB1",
+            label: "BootStrap"
+        }, {
+            value: 150,
+            color: "#4D5360",
+            label: "WCF"
+        }];
+
+        var DoughnutTextInsideChart = new Chart($('#myChart')[0].getContext('2d')).DoughnutTextInside(data, {
+            responsive: false
+        });
+        document.getElementById('js-legend').innerHTML = DoughnutTextInsideChart.generateLegend();
+    </script>
+</body>
+</html>
